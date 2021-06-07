@@ -1,0 +1,271 @@
+<style>
+*{
+	margin:0px;
+	padding:0px;
+	font-family: sans-serif;
+	font-size: 12px;;
+}
+
+.header{
+
+	margin: auto;
+	margin-top:5%;
+	width:100%;
+	border:1px solid black;
+	border-top:0px;
+
+}
+
+.izq{
+	width: 40%;
+	height: 80px;
+	float:left;
+	border:1px solid black;
+}
+
+.der{
+	width:59%;
+	height: 80px;
+	float: right;
+	border:1px solid black;
+}
+
+.imagen{
+	border-bottom:1px solid black;
+}
+
+.left{
+	width:32.5%;
+	padding:0.2%;
+	border:1px solid black;
+	float:left;
+	border-left:0px;
+	border-top:0px;
+
+}
+
+.center{
+	width:32%;
+	padding:0.2%;
+	border-bottom:1px solid black;
+	float:left;
+}
+
+.right{
+	width:33%;
+	padding:0.2%;
+	border:1px solid black;
+	float:right;
+	border-top:0px;
+	border-right:0px;
+}
+
+.abajo{
+	padding:7.5%;
+}
+
+.cuerpo{
+	
+	margin: auto;
+	margin-top:12%;
+	width:100%;	
+	border:1px solid black;
+	border-bottom:0px;
+
+}
+
+table{
+
+  border-collapse: collapse;
+}
+.datos{
+	border: 1px solid black;
+	width:16%;
+	padding: 1%;
+}
+
+.relleno{
+		border: 1px solid black;
+}
+
+.concepto{
+	margin: auto;
+	width:100%;	
+	border:1px solid black;
+	border-top:0px;
+}
+
+.footer{
+	
+	margin: auto;
+	margin-top:6%;
+	width:100%;	
+	border:1px solid black;
+}
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+
+	<head>
+		<title>Formulario</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	</head>
+
+	<body>
+
+	<!-- INICIO HEADER -->
+
+		<div class="header" >
+
+			<div class="izq">
+
+					<center>
+					<div class="imagen">
+						<img src="https://www.ucsc.cl/wp-content/uploads/2015/01/logo_horizontal_color_sinfondo.png" style="width: 50%; padding-top:5%;">
+					</div>
+										
+					</center>
+
+					<center>
+							Direccion de Biblioteca
+					</center>
+
+			</div>
+
+
+			<div class="der">
+
+				<div class="left">
+					<center>Version 1.0</center>
+				</div>
+
+				<div class="center">
+					<center>Estado:Vigente</center>
+				</div>
+
+				<div class="right">
+					<center>Pagina 1 de 2</center>
+				</div>
+
+				<div class="abajo">
+					<center> Formulario final de inventario</center>
+				</div>
+				
+			</div>
+
+		</div>
+
+		<!--   FIN HEADER   -->
+		<br>
+		<br>
+		<!--   CUERPO   -->
+
+		<table class="cuerpo">
+				
+	
+					<tr>
+	           			 <td class="datos">Nombre del responsable</td>
+	           			 <td class="relleno">{{ formulario.nombre_responsable }} </td>
+          			</tr>
+
+          			<tr>
+	           			 <td class="datos">Biblioteca</td>
+	           			 <td class="relleno">{{ formulario.bibloteca}} </td>
+          			</tr>
+
+          			<tr>
+	           			 <td class="datos">Fecha de Inicio</td>
+	           			 <td class="relleno">{{ formulario.fecha_inicio|date:'d-m-Y' }}</td>
+          			</tr>
+
+          			<tr>
+	           			 <td class="datos">Fecha Termino</td>
+	           			 <td class="relleno">{{ formulario.fecha_termino|date:'d-m-Y' }}</td>
+          			</tr>
+
+          			<tr>
+	           			 <td class="datos">Fecha Informe</td>
+	           			 <td class="relleno">{{ formulario.fecha_publicacion|date:'d-m-Y' }}</td>
+          			</tr>
+			</table>
+
+
+			<!--- FIN CUERPO -->
+			<br>
+			<br>
+			<!-- INICIO CONCEPTOS -->
+
+			<table class="concepto">
+
+					<tr>
+	           			 <td class="datos" style="width:8%">N°</td>
+	           			 <td class="datos" style="width:55%"><center>CONCEPTOS</center></td>
+	           			 <td class="datos" style="width:8%">SSUE</td>
+	           			 <td class="datos" style="width:8%">LIBROS</td>
+	           			 <td class="datos" style="width:8%">CD</td>
+	           			 <td class="datos" style="width:8%">RESP</td>
+          			</tr>
+
+          			<tr>
+          				 <td class="datos" style="width:8%">1</td>
+	           			 <td class="datos" style="width:55%">Total de items disponibles en el sistema</td>
+	           			 <td class="datos" style="width:8%">{{ total_inventariados_ssue }}</td>
+	           			 <td class="datos" style="width:8%">{{ total_inventariados_libros }}</td>
+	           			 <td class="datos" style="width:8%">{{ total_inventariados_cd}}</td>
+	           			 <td class="datos" style="width:8%">{{ total_inventariados_resp }}</td>
+
+          			</tr>
+
+
+          			<tr>
+          				 <td class="datos" style="width:8%">2</td>
+	           			 <td class="datos" style="width:55%">Total de items inventariados(capturados en block de notas y pistola de mando)</td>
+	           			 <td class="datos" style="width:8%">{{ total_inventariados_ssue }}</td>
+	           			 <td class="datos" style="width:8%">{{ total_inventariados_libros }}</td>
+	           			 <td class="datos" style="width:8%">{{ total_inventariados_cd}}</td>
+	           			 <td class="datos" style="width:8%">{{ total_inventariados_resp }}</td>
+
+					  </tr>
+					  {% for concepto in conceptos %}
+					  <tr>
+						<td class="datos" style="width:8%">{{ concepto.id }}</td>
+						 <td class="datos" style="width:55%">{{ concepto.nombre_concepto }}</td>
+						 <td class="datos" style="width:8%">{{ concepto.ssue}}</td>
+						 <td class="datos" style="width:8%">{{ concepto.libros}}</td>
+						 <td class="datos" style="width:8%">{{ concepto.cd}}</td>
+						 <td class="datos" style="width:8%">{{ concepto.resp}}</td>
+						   </tr>
+						   {% endfor %}
+
+          	</table>
+
+
+
+          <table class="footer">
+          			<tr>
+          				 <td class="datos" style="width:25%"></td>
+	           			 <td class="datos" style="width:25%"><center>Elaboracion</center></td>
+	           			 <td class="datos" style="width:25%"><center>Revision</center></td>
+	           			 <td class="datos" style="width:25%"><center>Aprobacion</center></td>
+          			</tr>
+
+          			<tr>
+          				 <td class="datos" style="width:25%"><center>Fecha</center></td>
+	           			 <td class="datos" style="width:25%"><center>01-03-2016</center></td>
+	           			 <td class="datos" style="width:25%"><center>04-03-2016</center></td>
+	           			 <td class="datos" style="width:25%"><center>23-05-2016</center></td>
+          			</tr>
+
+          			<tr>
+          				 <td class="datos" style="width:25%"><center>Cargo</center></td>
+	           			 <td class="datos" style="width:25%"><center>Jefe Unidad Servicios al Publico y Referencia</center></td>
+	           			 <td class="datos" style="width:25%"><center>Jefe Unidad Servicios al Publico y Referencia</center></td>
+	          			 <td class="datos" style="width:25%"><center>Director de biblioteca</center></td>
+          			</tr>
+          </table>
+
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<div class="container">
+    <br>
+    <form action="." method="GET">
+        <center>
+            <input name="q" class="row col-12 form-control" type=" text "
+                placeholder="Buscar Formulario (Nombre Responsable , Bibloteca)" aria-label="Search"
+                value="{{ query|escape }}">
+        </center>
+        <br>
+        <input type="date" name="qfecha1" class="row col-6 float-left">
+        <input type="date" name="qfecha2" class="row col-6 float-right">
+        <br>
+        <br>
+        <input type="submit" class="row col-6 btn btn-danger float-left" value="Buscar">
+    </form>
+    <a href="/insertar_formulario/" class="row col-6 btn btn-dark float-right"> Ingresar Formulario</a>
+    <br>
+    <br>
+
+    <table class="table table-striped table-dark " id="tabla-formularios ">
+        <thead>
+            <tr>
+                <th scope="col ">Fecha de Emision</th>
+                <th scope="col ">Sede</th>
+                <th scope="col ">Encargado</th>
+                <th scope="col ">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for formulario in formularios%}
+            <td>{{formulario.fecha_publicacion|date:'d-m-Y'}}</td>
+            <td>{{formulario.bibloteca}}</td>
+            <td>{{formulario.nombre_responsable}}</td>
+            <td>
+                <a href="/formulario/{{formulario.id}}">
+                    <i class="material-icons text-white ">
+                        assignment
+                    </i>
+                </a>
+                <a href="/ingresar_valores/{{formulario.id}}">
+                    <i class="material-icons text-white ">
+                        build
+                    </i>
+                </a>
+            </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2>Ingresar Formulario</h2>
+
+<div class="container " style="background-color:grey">
+    <form method="POST" novalidate action="/insertar_formulario/" class="form-group text-center">
+        <br>
+        <br>
+        {% csrf_token %} {{form.as_p}}
+        <button type="submit" class="btn btn-success"> Siguiente </button>
+    </form>
+    <br>
+    <br>
+</div>
+
+
+{% endblock %}
